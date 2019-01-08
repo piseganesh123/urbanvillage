@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'gcr.io/quantum-enigma-19310/hellpapp', '.' ]
+images:
+- 'gcr.io/quantum-enigma-193107/helloapp'
