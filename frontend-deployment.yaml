@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: gcr.io/quantum-enigma-193107/helloapp-image 
+        image: gcr.io/quantum-enigma-193107/urbanvillagecloudbuild:latest
         resources:
           requests:
             cpu: 100m
