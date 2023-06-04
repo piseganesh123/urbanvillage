@@ -6,3 +6,6 @@ resource "aws_subnet" "demo-subnet" {
     "purpose" = "demo"
   }    
 }
+data "aws_vpc" "demo-vpc-data" {
+  cidr_block = "10.0.0.0/24"
+}
