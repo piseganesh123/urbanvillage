@@ -1,7 +1,7 @@
 # urbonvillage
 Application created to help urban community to reach best resources from villages
 
-git clone <repo>
+git clone <this-repo>
 
 sudo docker stop demo-farma-app && sudo docker rm demo-farma-app
 
