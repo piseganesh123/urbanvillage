@@ -33,6 +33,8 @@ spec:
 //          sh("kubectl apply -f ./sample-app/k8s/production/java-demo-service.yaml")
         }
       }
+    }
+    stage('Deploy Dev') {      
       when { branch 'dev' }
       steps{
         container('kubectl') {
