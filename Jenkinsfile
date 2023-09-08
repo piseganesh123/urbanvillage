@@ -24,12 +24,24 @@ spec:
   stages {
     stage('Deploy Production') {
       // Production branch
-//      when { branch 'master' }
+      when { branch 'master' }
       steps{
         container('kubectl') {
           sh("echo In Deploy Production stage")
           sh("pwd")
           sh("kubectl apply -f ./k8s-infra/app-deployment.yaml")
+//          sh("kubectl apply -f ./sample-app/k8s/production/java-demo-service.yaml")
+        }
+      }
+    }
+    stage('Deploy Dev') {      
+      when { branch 'dev' }
+      steps{
+        container('kubectl') {
+          sh("echo In Deploy Dev stage")
+          sh("pwd")
+          sh("cat ./k8s-infra/app-dev-deployment.yaml")
+          sh("kubectl apply -f ./k8s-infra/app-dev-deployment.yaml")
 //          sh("kubectl apply -f ./sample-app/k8s/production/java-demo-service.yaml")
         }
       }
