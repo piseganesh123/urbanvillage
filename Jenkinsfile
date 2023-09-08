@@ -40,7 +40,7 @@ spec:
         container('kubectl') {
           sh("echo In Deploy Dev stage")
           sh("pwd")
-          sh("cat ./k8s-infra/app-deployment.yaml")
+          sh("cat ./k8s-infra/app-dev-deployment.yaml")
           sh("kubectl apply -f ./k8s-infra/app-dev-deployment.yaml")
 //          sh("kubectl apply -f ./sample-app/k8s/production/java-demo-service.yaml")
         }
