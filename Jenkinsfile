@@ -35,7 +35,7 @@ spec:
       }
     }
     stage('Deploy Dev') {      
-      when { branch 'dev' }
+//      when { branch 'dev' }
       steps{
         container('kubectl') {
           sh("echo In Deploy Production stage")
