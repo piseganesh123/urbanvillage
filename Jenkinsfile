@@ -38,7 +38,7 @@ spec:
       when { branch 'dev' }
       steps{
         container('kubectl') {
-          sh("echo In Deploy Production stage")
+          sh("echo In Deploy Dev stage")
           sh("pwd")
           sh("cat ./k8s-infra/app-deployment.yaml")
           sh("kubectl apply -f ./k8s-infra/app-dev-deployment.yaml")
