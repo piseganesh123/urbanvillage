@@ -13,7 +13,7 @@ spec:
         app: farma-demo-dev-app-ui
     spec:
       containers:
-      - image: ghcr.io/piseganesh123/urbanvillage:sha256-5b8b426e542c8b9d62503d02ae51ec4f82575fbf91ec8c226e1de77da81ccb37.sig
+      - image: ghcr.io/piseganesh123/urbanvillage:sha256-1cd0c784844ae2ca08a14bf70be9a5bcbc7a50c4f0ca637a23a9c1eaedbe381d.sig
         name: farma-demoapp-ui
         ports:
         - containerPort: 80
