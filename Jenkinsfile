@@ -24,7 +24,7 @@ spec:
   stages {
     stage('Deploy Production') {
       // Production branch
-      when { branch 'master' }
+//      when { branch 'master' }
       steps{
         container('kubectl') {
           sh("echo In Deploy Production stage")
