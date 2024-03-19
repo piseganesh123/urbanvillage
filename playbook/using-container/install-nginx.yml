@@ -1,0 +1,44 @@
+---
+- name: Clone repository, install nginx, and copy files
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Delete existing directory if present
+      file:
+        path: /home/vagrant/src-code/urbanvillage
+        state: absent
+      ignore_errors: yes
+
+    - name: Clone the git repository
+      git:
+        repo: https://github.com/piseganesh123/urbanvillage.git
+        dest: /home/vagrant/src-code/urbanvillage
+      register: git_clone_result
+
+    - name: Install nginx
+      apt:
+        name: nginx
+        state: present
+
+    - name: Copy 'src' folder to nginx location
+      copy:
+        src: /home/vagrant/src-code/urbanvillage/src
+        dest: /usr/share/nginx/html
+      when: git_clone_result.changed
+
+    - name: Copy 'images' to nginx location
+      copy:
+        src: /home/vagrant/src-code/urbanvillage/images/farmMarket2.jpg
+        dest: /usr/share/nginx/html
+      when: git_clone_result.changed
+
+    - name: replace default nginx page with application page
+      copy:
+        src: /home/vagrant/src-code/urbanvillage/src/index.html
+        dest: /var/www/html
+      when: git_clone_result.changed
+
+    - name: Start nginx service
+      service:
+        name: nginx
+        state: started
