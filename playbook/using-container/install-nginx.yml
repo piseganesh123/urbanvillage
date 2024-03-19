@@ -5,14 +5,14 @@
   tasks:
     - name: Delete existing directory if present
       file:
-        path: /home/vagrant/src-code/urbanvillage
+        path: /tmp/ansible-src-code/urbanvillage
         state: absent
       ignore_errors: yes
 
     - name: Clone the git repository
       git:
         repo: https://github.com/piseganesh123/urbanvillage.git
-        dest: /home/vagrant/src-code/urbanvillage
+        dest: /tmp/ansible-src-code/urbanvillage
       register: git_clone_result
 
     - name: Install nginx
@@ -22,19 +22,19 @@
 
     - name: Copy 'src' folder to nginx location
       copy:
-        src: /home/vagrant/src-code/urbanvillage/src
+        src: /tmp/ansible-src-code/urbanvillage/src
         dest: /usr/share/nginx/html
       when: git_clone_result.changed
 
     - name: Copy 'images' to nginx location
       copy:
-        src: /home/vagrant/src-code/urbanvillage/images/farmMarket2.jpg
+        src: /tmp/ansible-src-code/urbanvillage/images/farmMarket2.jpg
         dest: /usr/share/nginx/html
       when: git_clone_result.changed
 
     - name: replace default nginx page with application page
       copy:
-        src: /home/vagrant/src-code/urbanvillage/src/index.html
+        src: /tmp/ansible-src-code/urbanvillage/src/index.html
         dest: /var/www/html
       when: git_clone_result.changed
 
