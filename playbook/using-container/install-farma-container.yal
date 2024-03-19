@@ -3,8 +3,7 @@
   hosts: localhost
   become: yes
   vars:
-    default_container_image: "piseganesh123/farma-demo-app:1.0.1"
-    default_container_command: "echo 'Hello, Farma Demo App!'"
+    default_container_image: "piseganesh123/farma-demo-app:1.1.2"
     container_count: 1
     exposed_port: 80
     host_port: 80
