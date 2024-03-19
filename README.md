@@ -1,4 +1,4 @@
-# urbonvillage
+# urbonvillage - demo application
 Application created to help urban community to reach best resources from villages
 
 git clone <this-repo>
