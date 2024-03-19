@@ -5,6 +5,6 @@ git clone <this-repo>
 
 sudo docker stop demo-farma-app && sudo docker rm demo-farma-app
 
-docker build -t demo-urban-farm:1.0.1 .
+sudo docker build -t demo-urban-farm:1.0.1 .
 
-docker run -d -p 80:80 --name demo-farma-app demo-urban-farm:1.0.1
+sudo docker run -d -p 80:80 --name demo-farma-app piseganesh123/farma-demo-app:1.0.1
